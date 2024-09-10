@@ -1,0 +1,81 @@
+.cuadro-dialogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cuadro-dialogo input,
+.cuadro-dialogo textarea,
+.cuadro-dialogo select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.aceptar {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 10px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancelar {
+  background-color: #f44336;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 10px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.aceptar:hover{
+  background-color: #287c2a;
+}
+
+.cancelar:hover{
+  background-color: #b4160b;
+}
+
+.cuadro-dialogo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998;
+}
+
+.error{
+  border-color: red !important;
+  border: solid red !important;
+  border-width: 1px !important;
+}
+
+.error-message{
+  color: red;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  padding-top: 0px;
+  line-height: 0.9;
+  margin-left: 2px;
+  font-size: 15px;
+}

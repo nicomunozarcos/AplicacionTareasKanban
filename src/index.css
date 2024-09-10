@@ -1,0 +1,684 @@
+:root {
+  --bg-color: #1f2029 !important;
+  --text-color: #c4c3ca !important;
+}
+
+:root.dark-mode {
+  --bg-color: var(--text-color) !important;
+  --text-color: var(--bg-color) !important;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-mode {
+  --bg-color: #fcfcfc !important;
+  --text-color: #1f2029 !important;
+}
+
+ body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+
+.grisoscuro {
+  background-color: var(--bg-color) !important;
+}
+
+.grisoscuroletra {
+  color: var(--bg-color) !important;
+}
+
+.grisaceo{
+  background-color: var(--text-color) !important;
+}
+
+.grisaceoletra{
+  color: var(--text-color) !important;
+}
+
+.navegacion-color{
+  color: var(--text-color) !important;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex !important;
+  align-self: center !important;
+  margin-bottom: 0px;
+  padding-top: 9px;
+  padding-bottom: 2px;
+}
+
+.navegacion-color:hover{
+  color: #fff !important;
+}
+
+.navegacion-color.dark-mode:hover{
+  color: green !important;
+}
+
+.footer {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 1px;
+  text-align: center !important;
+  height: 30px;
+  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  white-space: nowrap;
+}
+
+.footer.dark-mode {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 10px;
+  text-align: center;
+  height: 50px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-content {
+  display: inline;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-text {
+  margin-bottom: 5px;
+  font-size: 11px;
+  margin-right: 30px;
+  display: inline;
+}
+
+.footer-text a {
+  color: inherit;
+}
+
+.footer-text a:hover {
+  color: #fff;
+}
+
+.footer-text.dark-mode a:hover {
+  color: green;
+}
+
+#tareaspendientes {
+  border-color:var(--text-color) !important;
+  border: solid;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 1px;
+  height: 100%;
+  display: flex;
+  margin: auto;
+}
+
+#tareasenprogreso {
+  border-color: var(--text-color) !important;
+  border: solid;
+  opacity: 1;
+  height: 100%; 
+  border-width: 1px;
+  border-radius: 1px;
+  display: flex;
+  margin: auto;
+}
+
+#tareasacabadas {
+  border-color: var(--text-color) !important;
+  border: solid;
+  height: 100%;
+  border-width: 1px;
+  opacity: 1;
+  border-radius: 1px;
+  display: flex;
+  margin: auto;
+}
+
+.inicio-color{
+  color: var(--text-color) !important;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex !important;
+  align-self: center !important;
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+
+.tareas-color{
+  color: var(--text-color) !important;
+  font-size: 16px;
+  margin-left: 150px;
+  margin-bottom: 3px;
+}
+
+.container{
+  max-width: 99% !important;
+}
+
+.add-task{
+  background-color: transparent;
+  border: solid;
+  color: greenyellow;
+  font-size: 13px;
+  font-weight: 600;
+  border-color: greenyellow;
+  border-width: 2px;
+  opacity: 1;
+  border-radius: 100px;
+  margin-left: 120px;
+  margin-right: 8px;
+  margin-top: 4px;
+  
+}
+
+.add-task:hover{
+  background-color: rgba(133, 180, 62, 0.377);
+  border: solid;
+  color: greenyellow;
+  font-size: 13px;
+  border-color: greenyellow;
+  border-width: 2px;
+  opacity: 1;
+  border-radius: 100px;
+  margin-left: 120px;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.add-task.dark-mode:hover{
+  background-color: rgba(129, 201, 22, 0.541);
+  border: solid;
+  color: green;
+  font-size: 13px;
+  border-color: green;
+  border-width: 2px;
+  opacity: 1;
+  border-radius: 100px;
+  margin-left: 120px;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.add-task.dark-mode{
+  background-color: transparent;
+  border: solid;
+  color: green;
+  font-size: 13px;
+  border-color: green;
+  border-width: 2px;
+  opacity: 1;
+  border-radius: 100px;
+  margin-left: 120px;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.agregar{
+  color: greenyellow !important;
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px !important;
+  z-index: 9998;
+}
+
+.agregar.dark-mode{
+  color: green !important;
+  font-size: 15px;
+}
+
+
+
+#tareaspendientes-lista {
+  border-color:var(--text-color) !important;
+  border: solid;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 1px;
+  display: flex;
+  margin: auto;
+  padding-bottom: 1000px;
+}
+
+#tareasenprogreso-lista {
+  border-color: var(--text-color) !important;
+  border: solid;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 1px;
+  display: flex;
+  margin: auto;
+  padding-bottom: 1000px;
+}
+
+#tareasacabadas-lista {
+  border-color: var(--text-color) !important;
+  border: solid;
+  border-width: 1px;
+  opacity: 1;
+  border-radius: 1px;
+  display: flex;
+  margin: auto;
+  padding-bottom: 1000px;
+}
+
+table {
+  border-color: var(--text-color) !important;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  border-radius: 12px;
+  margin-right: 10px;
+  margin-top: 0.2rem!important;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: greenyellow;
+  border-radius: 12px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #1f2029;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: green;
+}
+
+input:focus + .slider {
+  box-shadow: green;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.heightsearch{
+  height: 25px ;
+  align-items: center;
+  align-self: center;
+  border: solid;
+  border-color: #1f2029;
+  border-width: 1px;
+  font-size: 15px;
+  width: 150px
+}
+
+.btnheight{
+  height: 25px;
+  display: flex;
+  align-items: center;
+  border-width: 2px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.lista-tareas {
+  width: 100%;
+  align-self: left;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.llenar{
+  align-items: stretch;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: var(--bg-color);
+}
+
+#tableronotas{
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3000px;
+}
+
+.basado{
+  align-items: center !important;
+  justify-content: center !important;
+  justify-self: center !important;
+  justify-items: center !important;
+}
+
+#navbarTogglerDemo02 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn-check:focus+.btn-secondary, .btn-secondary:focus {
+  color: #fff;
+  background-color: #5c636a; 
+  border-color: #565e64; 
+  box-shadow: none !important; 
+}
+
+.pt-00 {
+  padding-top: 0.09rem!important;
+}
+
+.arribaZ{
+  z-index: 9997;
+}
+
+.cuadroinicio{
+  border: solid;
+  border-color: var(--text-color) !important;
+  min-height: 200px;
+  border-width: 1.5px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cuadroinicio-notas{
+  border: solid;
+  border-width: 1.5px;
+  border-color: var(--text-color) !important;
+  min-height: 500px;
+  border-radius: 2px;
+}
+
+.cuadrodepartamento{
+  border: solid;
+  border-width: 1.5px;
+  border-color: var(--text-color) !important;
+  min-height: 500px;
+  border-radius: 2px;
+}
+
+.ml-1{
+  margin-left: 10px;
+}
+
+.tareasdep{
+  color: var(--text-color) !important;
+  font-size: 16px;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.micuenta{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.textocuenta{
+  width: 40% !important;
+}
+
+.botoncuenta{
+  margin-left: 50px;
+}
+
+.botonconfirm{
+  border-width: 2px;
+  font-weight: 600;
+}
+
+.datos{
+  margin-left: 85px;
+  margin-top: 80px !important;
+}
+
+.mtablero{
+  margin-top: 0px !important;
+}
+
+.btncreartablero{
+  font-size: 12px;
+  background-color: rgb(15, 119, 79);
+  color: #fcfcfc;
+}
+
+.drptext{
+  font-size: 13px;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  justify-content: center;
+}
+
+.drptext3{
+  text-align: center;
+  font-size: 13px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 3px !important;
+  margin-right: 14px;
+  justify-content: center;
+}
+
+.drptext4{
+  text-align: center;
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 3px !important;
+  margin-right: 14px;
+  justify-content: center;
+}
+
+.dropdown1 {
+  position: relative;
+  margin-left: 5px;
+  display: flex;
+}
+
+.dropdown-menu{
+  margin-left: 7px;
+  margin-top: 0px;
+  top: 23px;
+  z-index: 9990;
+}
+
+.context-menu {
+  position: absolute;
+  width: 210px;
+  top: 0;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #5c636a;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 13px;
+  justify-content: center;
+  color: #fcfcfc;
+}
+
+.menu-item span {
+  margin-right: 5px;
+  background-color: #5c636a;
+}
+
+.inputmenu{
+  width: 65px;
+  display: block;
+}
+
+/* Estilos para la checkbox */
+#mi-checkbox {
+  display: none; /* Oculta la checkbox por defecto */
+}
+
+/* Estilos para el contenedor de la checkbox */
+label[for="mi-checkbox"] {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px; /* Espacio para el indicador */
+  cursor: pointer;
+}
+
+/* Estilos para el indicador */
+label[for="mi-checkbox"]:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+/* Estilos para el indicador cuando está marcado */
+#mi-checkbox:checked + label[for="mi-checkbox"]:before {
+  background-color: #000;
+}
+
+/* Estilos para el indicador marcado */
+#mi-checkbox:checked + label[for="mi-checkbox"]:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+}
+
+.nowrap{
+  flex-wrap: nowrap;
+}
+
+.tablero-activo{
+  color: yellowgreen !important;
+}
+
+.tablero-activo.dark-mode{
+  color: green !important;
+}
+
+.borrar-tablero {
+  color: red;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.alerta-confirmacion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tablero-item {
+  display: flex;
+  align-items: center;
+}
+
+
+.show-confirmation::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9996;
+}
+
+
+.dropdown-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addtaskdep{
+  margin-left: 20px !important;
+  height: 25px !important;
+}
+.fxright{
+  position: absolute !important;
+  right: 12px !important;
+}
+
+.tarea-card.tarea-dragging {
+  opacity: 0;
+}
+
+
+
+.input-small {
+    width: 35px; /* Ajusta el tamaño según tus necesidades */
+    height: 20px;
+}

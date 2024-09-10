@@ -1,0 +1,154 @@
+.tarea-card {
+  width: 98%;
+  max-width: 550px;
+  height: 66px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  margin-bottom: 10px;
+  margin-top:8px;
+  margin-right: 30px;
+}
+
+.tarea-header {
+  display: flex;
+  align-items: center;
+  height: 23px;
+}
+
+.tarea-priority {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 2px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  height: 22px;
+  align-items: center;
+  
+}
+
+.baja {
+  background-color: #77ec68;
+  color: rgb(0, 0, 0);
+}
+
+.media {
+  background-color: #c9bf3b;
+  color: rgb(0, 0, 0);
+}
+
+.alta {
+  background-color:  #ee8c4a;
+  color: rgb(0, 0, 0);
+}
+
+.baja2 {
+  border-color: #77ec68;
+  border-width: 2px;
+}
+
+.media2 {
+  border-color: #c9bf3b;
+  border-width: 2px;
+}
+
+.alta2 {
+  border-color:  #ee8c4a;
+  border-width: 2px;
+}
+
+.urgente2 {
+  border-color: #e4362a;
+  border-width: 2px;
+}
+
+
+.urgente {
+  background-color: #e4362a;
+  color: rgb(0, 0, 0);
+}
+
+.tarea-name {
+  color: #1f2029;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 4px;
+  margin-top: 0px;
+}
+
+.tarea-dates {
+  color: #1f2029;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  padding-bottom: 0px;
+  line-height: 1.5;
+}
+
+.tarea-creation-date,
+.tarea-finish-date {
+  font-size: 11px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.tarea-observations {
+  color: #1f2029;
+  font-size: 11px;
+  margin-left: 4px;
+  padding-top: 0px;
+  margin-top: 0px;
+  font-weight: 450;
+  line-height: 1.3;
+}
+
+.context-menu2 {
+  background-color: #5c636a;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 0px;
+  z-index: 1;
+  width: 120px;
+}
+
+.menu-item2 {
+  padding: 4px;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.menu-item2:hover {
+  background-color: #353333;
+}
+
+.move-to-options {
+  position: absolute;
+  top: 65px;
+  left: 100%;
+  width: 120px;
+  background-color: #5c636a;;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 0px;
+  z-index: 2;
+  min-width: 100px;
+}
+
+.move-to-option {
+  width: 100%;
+  padding: 4px;
+  cursor: pointer;
+  padding-left: 8px;
+}
+
+.move-to-option:hover {
+  background-color: #353333;
+}
+
+
