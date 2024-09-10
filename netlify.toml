@@ -1,5 +1,5 @@
 [build.environment]
-NODE_VERSION = "18.x"
+NODE_VERSION = "16.0"
 [build]
   command = "npm run build"
   publish = "build"
