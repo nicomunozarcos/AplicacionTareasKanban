@@ -18,7 +18,7 @@ export const TareasProvider = ({ children }) => {
     if (tableroId) {
       try {
         console.log(`Fetching tareas for tableroId: ${tableroId}`);
-        const response = await fetch(`http://localhost:3000/api/tareas/${tableroId}`);
+        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${tableroId}`);
         console.log(`Response status: ${response.status}`);
         if (response.ok) {
           const data = await response.json();
@@ -44,7 +44,7 @@ export const TareasProvider = ({ children }) => {
 
   const handleMoveToOptionClick = async (tareaId, columna) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/tareas/${tareaId}`, {
+      const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${tareaId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const TareasProvider = ({ children }) => {
 
   const handleDeleteClick = async (tareaId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/tareas/${tareaId}`, {
+      const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${tareaId}`, {
         method: 'DELETE',
       });
 

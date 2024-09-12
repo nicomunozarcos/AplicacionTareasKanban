@@ -40,7 +40,7 @@ export function DropdownNotas() {
     const userData = JSON.parse(localStorage.getItem('userData'));
     const userId = userData.ID;
 
-    fetch(`http://localhost:3000/api/tableros-notas/${userId}`)
+    fetch(`https://back-tareas.vercel.app/api/tableros-notas/${userId}`)
       .then(response => response.json())
       .then(data => setTableros(data))
       .catch(error => console.error('Error:', error));
@@ -49,7 +49,7 @@ export function DropdownNotas() {
   const fetchNotasTablero = () => {
     const tableroId = tableroSeleccionado.TN_ID;
 
-    fetch(`http://localhost:3000/api/notas/${tableroId}`)
+    fetch(`https://back-tareas.vercel.app/api/notas/${tableroId}`)
       .then(response => response.json())
       .then(data => {
         setNotasTableroSeleccionado(data);
@@ -70,7 +70,7 @@ export function DropdownNotas() {
       const userData = JSON.parse(localStorage.getItem('userData'));
       const userId = userData.ID;
 
-      fetch(`http://localhost:3000/api/tableros-notas/${userId}`, {
+      fetch(`https://back-tareas.vercel.app/api/tableros-notas/${userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -36,7 +36,7 @@ export const PaginaMiCuenta = () => {
     const userData = storedData ? JSON.parse(storedData) : null;
     const userID = userData ? userData.ID : null; // Obtener el ID del localStorage
 
-    fetch('http://localhost:3000/api/actualizar-datos', {
+    fetch('https://back-tareas.vercel.app/api/actualizar-datos', {
       method: 'POST',
       body: JSON.stringify({ userID, nombre, email, contraseña }),
       headers: {

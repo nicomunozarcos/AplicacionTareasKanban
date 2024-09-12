@@ -35,7 +35,7 @@ export function TableroTareas() {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/tareas/', {
+      const response = await fetch('https://back-tareas.vercel.app/api/tareas/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ export function TableroTareas() {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/tareas/', {
+      const response = await fetch('https://back-tareas.vercel.app/api/tareas/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export function TableroTareas() {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/tareas/', {
+      const response = await fetch('https://back-tareas.vercel.app/api/tareas/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

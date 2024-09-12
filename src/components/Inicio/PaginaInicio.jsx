@@ -26,7 +26,7 @@ export function PaginaInicio() {
   };
 
   const fetchTareas = (userId) => {
-    fetch(`http://localhost:3000/api/tareas?TA_PRIORIDAD=URGENTE&usuarioId=${userId}`)
+    fetch(`https://back-tareas.vercel.app/api/tareas?TA_PRIORIDAD=URGENTE&usuarioId=${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setTareasInicio(data);

@@ -13,7 +13,7 @@ export const TareasAcabadas = () => {
       const tareaId = item.tareaId;
       const nuevaColumna = '3'; 
   
-      fetch(`http://localhost:3000/api/tareas/actualizar-columna`, {
+      fetch(`https://back-tareas.vercel.app/api/tareas/actualizar-columna`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

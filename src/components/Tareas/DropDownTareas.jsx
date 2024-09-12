@@ -46,7 +46,7 @@ export function DropdownTareas() {
     const userData = JSON.parse(localStorage.getItem('userData'));
     const userId = userData.ID;
   
-    fetch(`http://localhost:3000/api/tableros-tareas/${userId}`)
+    fetch(`https://back-tareas.vercel.app/api/tableros-tareas/${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setTableros(data);
@@ -67,7 +67,7 @@ export function DropdownTareas() {
       const userData = JSON.parse(localStorage.getItem('userData'));
       const userId = userData.ID;
 
-      fetch(`http://localhost:3000/api/tableros-tareas/${userId}`, {
+      fetch(`https://back-tareas.vercel.app/api/tableros-tareas/${userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export function DropdownTareas() {
   };
 
   const eliminarTareasDelTablero = (tablero) => {
-    fetch(`http://localhost:3000/api/tareas/tablero/${tablero.TT_ID}`, {
+    fetch(`https://back-tareas.vercel.app/api/tareas/tablero/${tablero.TT_ID}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -110,7 +110,7 @@ export function DropdownTareas() {
   };
 
   const borrarTablero = (tablero) => {
-    fetch(`http://localhost:3000/api/tableros-tareas/${tablero.TT_ID}`, {
+    fetch(`https://back-tareas.vercel.app/api/tableros-tareas/${tablero.TT_ID}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())

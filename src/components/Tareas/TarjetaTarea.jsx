@@ -88,7 +88,7 @@ export function Tarea(props) {
     console.log(differenceInDays);
   
     if (differenceInDays < diasRestantes && prioridad.toLowerCase() !== 'urgente') {
-      fetch('http://localhost:3000/api/tareas/', {
+      fetch('https://back-tareas.vercel.app/api/tareas/', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
