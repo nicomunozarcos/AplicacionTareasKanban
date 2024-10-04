@@ -94,9 +94,10 @@ export function DropdownTareas() {
   const handleClickTablero = (tablero) => {
     setTableroSeleccionado(tablero);
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
-    actualizarTareas(tablero);
+    actualizarTareas(tablero.TT_ID);  // Pasar el ID del tablero seleccionado
     setTableroABorrar(null);
   };
+  
 
   const handleBorrarTablero = (tablero) => {
     setTableroABorrar(tablero);

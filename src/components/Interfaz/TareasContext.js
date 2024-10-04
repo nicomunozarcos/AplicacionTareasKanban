@@ -14,11 +14,11 @@ export const TareasProvider = ({ children }) => {
     }
   }, []);
 
-  const actualizarTareas = async () => {
-    if (tableroId) {
+  const actualizarTareas = async (nuevoTableroId) => {
+    if (nuevoTableroId) {
       try {
-        console.log(`Fetching tareas for tableroId: ${tableroId}`);
-        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${tableroId}`);
+        console.log(`Fetching tareas for tableroId: ${nuevoTableroId}`);
+        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${nuevoTableroId}`);
         console.log(`Response status: ${response.status}`);
         if (response.ok) {
           const data = await response.json();
