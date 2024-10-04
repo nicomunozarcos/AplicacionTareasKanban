@@ -50,9 +50,14 @@ export function DropdownTareas() {
       .then((response) => response.json())
       .then((data) => {
         setTableros(data);
-        const primerTablero = data[0];
-        setTableroSeleccionado(primerTablero);
-        actualizarTareas(primerTablero);
+  
+        // Si no hay un tablero en localStorage, selecciona el primero por defecto
+        const tableroSeleccionadoLocalStorage = localStorage.getItem('tableroSeleccionado');
+        if (!tableroSeleccionadoLocalStorage && data.length > 0) {
+          const primerTablero = data[0];
+          setTableroSeleccionado(primerTablero);
+          actualizarTareas(primerTablero);
+        }
       })
       .catch((error) => console.error('Error:', error));
   };
@@ -62,12 +67,7 @@ export function DropdownTareas() {
       fetchTableros();
     }
   }, [tableros.length]);
-
-  useEffect(() => {
-    if (tableroSeleccionado) {
-      actualizarTareas(tableroSeleccionado);
-    }
-  }, [tableroSeleccionado, actualizarTareas]);
+  
 
   const handleCrearTablero = () => {
     const nombreTablero = window.prompt('Ingrese el nombre del tablero:');
@@ -94,7 +94,12 @@ export function DropdownTareas() {
   const handleClickTablero = (tablero) => {
     setTableroSeleccionado(tablero);
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
-    actualizarTareas(tablero);
+  
+    // Llamar a actualizarTareas después de actualizar el estado de tableroSeleccionado
+    setTimeout(() => {
+      actualizarTareas(tablero);
+    }, 0);
+    
     setTableroABorrar(null);
   };
 
