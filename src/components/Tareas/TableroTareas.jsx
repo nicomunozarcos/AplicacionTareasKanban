@@ -12,10 +12,9 @@ export function TableroTareas() {
 
   useEffect(() => {
     if (tableroId) {
-      actualizarTareas(tableroId);  // Pasar el tableroId directamente
+      actualizarTareas();
     }
-  }, [tableroId]);  // Escuchar cambios en tableroId y actualizarTareas
-  
+  }, [tableroId, actualizarTareas]); // Escuchar cambios en tableroId
 
   if (!tareas) {
     return <div>Cargando tareas...</div>;

@@ -14,23 +14,25 @@ export const TareasProvider = ({ children }) => {
     }
   }, []);
 
-  const actualizarTareas = async (nuevoTableroId) => {
-    if (nuevoTableroId) {
+  const actualizarTareas = async () => {
+    if (tableroId) {
       try {
-        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${nuevoTableroId}`);
+        console.log(`Fetching tareas for tableroId: ${tableroId}`);
+        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${tableroId}`);
+        console.log(`Response status: ${response.status}`);
         if (response.ok) {
           const data = await response.json();
-          // Solo actualizamos si las tareas realmente han cambiado
-          if (JSON.stringify(data) !== JSON.stringify(tareas)) {
-            setTareas(data);
-            localStorage.setItem('tareasTableroSeleccionado', JSON.stringify(data));
-          }
+          console.log('Fetched tareas:', data);
+          setTareas(data);
+          localStorage.setItem('tareasTableroSeleccionado', JSON.stringify(data));
         } else {
           console.error('Error al actualizar las tareas:', response.statusText);
         }
       } catch (error) {
         console.error('Error al actualizar las tareas:', error);
       }
+    } else {
+      console.log('No tableroId available');
     }
   };
   
