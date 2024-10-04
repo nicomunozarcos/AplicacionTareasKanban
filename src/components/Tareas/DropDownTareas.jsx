@@ -63,6 +63,22 @@ export function DropdownTareas() {
   };
 
   useEffect(() => {
+    if (tableros.length > 0) {
+      const tableroSeleccionadoLocalStorage = localStorage.getItem('tableroSeleccionado');
+      if (tableroSeleccionadoLocalStorage) {
+        const tablero = tableros.find((tablero) => tablero.TT_ID.toString() === tableroSeleccionadoLocalStorage);
+        if (tablero) {
+          setTableroSeleccionado(tablero);
+          actualizarTareas(tablero);  // Asegurarse de actualizar tareas cuando se recupera del localStorage
+        }
+      } else {
+        setTableroSeleccionado(tableros[0]);
+        actualizarTareas(tableros[0]);
+      }
+    }
+  }, [tableros, actualizarTareas]);
+
+  useEffect(() => {
     if (tableros.length === 0) {
       fetchTableros();
     }
