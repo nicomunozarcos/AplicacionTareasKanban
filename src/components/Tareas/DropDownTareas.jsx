@@ -63,6 +63,12 @@ export function DropdownTareas() {
     }
   }, [tableros.length]);
 
+  useEffect(() => {
+    if (tableroSeleccionado) {
+      actualizarTareas(tableroSeleccionado);
+    }
+  }, [tableroSeleccionado, actualizarTareas]);
+
   const handleCrearTablero = () => {
     const nombreTablero = window.prompt('Ingrese el nombre del tablero:');
     if (nombreTablero) {
