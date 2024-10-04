@@ -88,6 +88,7 @@ export const TareasProvider = ({ children }) => {
         handleMoveToOptionClick, 
         handleDeleteClick, 
         tableroId, 
+        setTableroId,  // Añade esto aquí
         diasRestantes, 
         actualizarDiasRestantes,
         setTareas 
