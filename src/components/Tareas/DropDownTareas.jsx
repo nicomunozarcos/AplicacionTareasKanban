@@ -50,40 +50,18 @@ export function DropdownTareas() {
       .then((response) => response.json())
       .then((data) => {
         setTableros(data);
-  
-        // Si no hay un tablero en localStorage, selecciona el primero por defecto
-        const tableroSeleccionadoLocalStorage = localStorage.getItem('tableroSeleccionado');
-        if (!tableroSeleccionadoLocalStorage && data.length > 0) {
-          const primerTablero = data[0];
-          setTableroSeleccionado(primerTablero);
-          actualizarTareas(primerTablero);
-        }
+        const primerTablero = data[0];
+        setTableroSeleccionado(primerTablero);
+        actualizarTareas(primerTablero);
       })
       .catch((error) => console.error('Error:', error));
   };
 
-  useEffect(() => {
-    if (tableros.length > 0) {
-      const tableroSeleccionadoLocalStorage = localStorage.getItem('tableroSeleccionado');
-      if (tableroSeleccionadoLocalStorage) {
-        const tablero = tableros.find((tablero) => tablero.TT_ID.toString() === tableroSeleccionadoLocalStorage);
-        if (tablero) {
-          setTableroSeleccionado(tablero);
-          actualizarTareas(tablero);  // Asegurarse de actualizar tareas cuando se recupera del localStorage
-        }
-      } else {
-        setTableroSeleccionado(tableros[0]);
-        actualizarTareas(tableros[0]);
-      }
-    }
-  }, [tableros, actualizarTareas]);
-
-  useEffect(() => {
-    if (tableros.length === 0) {
-      fetchTableros();
-    }
-  }, [tableros.length]);
-  
+useEffect(() => {
+  if (tableros.length === 0) {
+    fetchTableros();
+  }
+}, [tableros.length]);
 
   const handleCrearTablero = () => {
     const nombreTablero = window.prompt('Ingrese el nombre del tablero:');
@@ -110,12 +88,7 @@ export function DropdownTareas() {
   const handleClickTablero = (tablero) => {
     setTableroSeleccionado(tablero);
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
-  
-    // Llamar a actualizarTareas después de actualizar el estado de tableroSeleccionado
-    setTimeout(() => {
-      actualizarTareas(tablero);
-    }, 0);
-    
+    actualizarTareas(tablero);
     setTableroABorrar(null);
   };
 

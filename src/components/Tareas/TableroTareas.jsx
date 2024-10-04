@@ -11,11 +11,9 @@ export function TableroTareas() {
   console.log(tareas)
 
   useEffect(() => {
-    if (tableroId) {
-      actualizarTareas();
-    }
-  }, [tableroId, actualizarTareas]);
-  
+    actualizarTareas();
+  }, [actualizarTareas]);
+
   if (!tareas) {
     return <div>Cargando tareas...</div>;
   }
