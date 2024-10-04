@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const TareasContext = createContext();
 
@@ -14,7 +14,7 @@ export const TareasProvider = ({ children }) => {
     }
   }, []);
 
-  const actualizarTareas = useCallback(async () => {
+  const actualizarTareas = async () => {
     if (tableroId) {
       try {
         console.log(`Fetching tareas for tableroId: ${tableroId}`);
@@ -34,7 +34,7 @@ export const TareasProvider = ({ children }) => {
     } else {
       console.log('No tableroId available');
     }
-  }, [tableroId]);
+  };
   
   
 
