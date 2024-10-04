@@ -57,11 +57,9 @@ export function DropdownTareas() {
       .catch((error) => console.error('Error:', error));
   };
 
-useEffect(() => {
-  if (tableros.length === 0) {
+  useEffect(() => {
     fetchTableros();
-  }
-}, [tableros.length]);
+  }, [fetchTableros]);
 
   const handleCrearTablero = () => {
     const nombreTablero = window.prompt('Ingrese el nombre del tablero:');
