@@ -14,7 +14,7 @@ export function TableroTareas() {
     if (tableroId) {
       actualizarTareas(tableroId);  // Pasar el tableroId directamente
     }
-  }, [tableroId, actualizarTareas]);  // Escuchar cambios en tableroId y actualizarTareas
+  }, [tableroId]);  // Escuchar cambios en tableroId y actualizarTareas
   
 
   if (!tareas) {
