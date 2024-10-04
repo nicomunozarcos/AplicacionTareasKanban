@@ -13,8 +13,8 @@ export const TareasProvider = ({ children }) => {
       setTableroId(storedTableroId);
     }
   }, []);
-
-  const actualizarTareas = async () => {
+  
+  const actualizarTareas = useCallback(async () => {
     if (tableroId) {
       try {
         console.log(`Fetching tareas for tableroId: ${tableroId}`);
@@ -34,7 +34,7 @@ export const TareasProvider = ({ children }) => {
     } else {
       console.log('No tableroId available');
     }
-  };
+  }, [tableroId]);
   
   
 
