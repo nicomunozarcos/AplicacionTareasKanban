@@ -8,7 +8,7 @@ export function DropdownTareas() {
   const [tableros, setTableros] = useState([]);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [tableroABorrar, setTableroABorrar] = useState(null);
-  const { actualizarTareas, diasRestantes, actualizarDiasRestantes } = useContext(TareasContext);
+  const { actualizarTareas, actualizarTableroId, diasRestantes, actualizarDiasRestantes } = useContext(TareasContext);
   const [tableroSeleccionado, setTableroSeleccionado] = useState(null);
 
   const cambioDias = (e) => {
@@ -88,9 +88,11 @@ export function DropdownTareas() {
   const handleClickTablero = (tablero) => {
     setTableroSeleccionado(tablero);
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
-    actualizarTareas(tablero);
+    actualizarTableroId(tablero.TT_ID);  // Actualizar tableroId en el contexto
+    actualizarTareas(tablero.TT_ID);     // Actualizar las tareas para el nuevo tablero
     setTableroABorrar(null);
   };
+
 
   const handleBorrarTablero = (tablero) => {
     setTableroABorrar(tablero);

@@ -14,11 +14,12 @@ export const TareasProvider = ({ children }) => {
     }
   }, []);
 
-  const actualizarTareas = async () => {
-    if (tableroId) {
+  const actualizarTareas = async (nuevoTableroId) => {
+    const id = nuevoTableroId || tableroId;  // Usar el nuevo tableroId o el existente
+    if (id) {
       try {
-        console.log(`Fetching tareas for tableroId: ${tableroId}`);
-        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${tableroId}`);
+        console.log(`Fetching tareas for tableroId: ${id}`);
+        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${id}`);
         console.log(`Response status: ${response.status}`);
         if (response.ok) {
           const data = await response.json();
@@ -35,9 +36,13 @@ export const TareasProvider = ({ children }) => {
       console.log('No tableroId available');
     }
   };
-  
-  
 
+  const actualizarTableroId = (nuevoId) => {
+    setTableroId(nuevoId);
+    localStorage.setItem('tableroSeleccionado', nuevoId);
+  };
+  
+  
   const actualizarDiasRestantes = (nuevoValor) => {
     setDiasRestantes(nuevoValor);
   };
@@ -85,6 +90,7 @@ export const TareasProvider = ({ children }) => {
       value={{ 
         tareas, 
         actualizarTareas, 
+        actualizarTableroId,   // Exponer la función en el contexto
         handleMoveToOptionClick, 
         handleDeleteClick, 
         tableroId, 
