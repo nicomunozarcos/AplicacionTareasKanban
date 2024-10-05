@@ -17,6 +17,7 @@ export function DropdownTareas() {
   };
 
 
+
   useEffect(() => {
     console.log("Tableros: ", tableros);
     if (tableros.length > 0) {
@@ -24,14 +25,16 @@ export function DropdownTareas() {
       if (tableroSeleccionadoLocalStorage) {
         const tablero = tableros.find((tablero) => tablero.TT_ID.toString() === tableroSeleccionadoLocalStorage);
         if (tablero) {
-          setTableroSeleccionado(tablero);
+          setTableroSeleccionado(tablero); // Establece el tablero seleccionado
         } else {
-          setTableroSeleccionado(tableros[0]);
-          actualizarTareas(tableros[0]);
+          setTableroSeleccionado(tableros[0]); // Si no hay un tablero en localStorage, selecciona el primero
         }
+      } else {
+        setTableroSeleccionado(tableros[0]); // Si no hay nada en localStorage, selecciona el primer tablero
       }
     }
-  }, [tableros, actualizarTareas]);
+  }, [tableros]); // Solo depende de tableros, y se asegura que están cargados antes de proceder
+  
 
   const toggleDropdown = () => {
     setIsOpenSetting(!isOpenSetting);
@@ -57,6 +60,11 @@ export function DropdownTareas() {
       .catch((error) => console.error('Error:', error));
   };
 
+
+  useEffect(() => {
+    fetchTableros(); // Llamar para cargar los tableros al montar el componente
+  }, []);
+  
   useEffect(() => {
     if (tableroSeleccionado) {
       actualizarTareas(tableroSeleccionado.TT_ID);  // Solo actualizar tareas si cambia el tablero seleccionado
@@ -87,13 +95,14 @@ export function DropdownTareas() {
 
   const handleClickTablero = (tablero) => {
     if (!tablero || tablero.TT_ID === tableroSeleccionado?.TT_ID) return; // Evitar seleccionar el mismo tablero de nuevo
-  
-    setTableroSeleccionado(tablero);
+    
+    setTableroSeleccionado(tablero); // Asegurarse de que esto se está ejecutando
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
     actualizarTableroId(tablero.TT_ID); 
     actualizarTareas(tablero.TT_ID);
     setTableroABorrar(null);
   };
+  
 
 
   const handleBorrarTablero = (tablero) => {
