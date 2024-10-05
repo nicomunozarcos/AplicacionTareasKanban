@@ -73,11 +73,7 @@ export function Tarea(props) {
     default:
       break;
   }
-
-  useEffect(() => {
-    actualizarTareas();
-  }, []);
-
+  
   useEffect(() => {
     const today = moment();
     const fechaFinalizacionFormatted = moment(fechaFinalizacion, 'DD-MM-YYYY');
