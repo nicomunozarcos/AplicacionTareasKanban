@@ -12,9 +12,9 @@ export function TableroTareas() {
 
   useEffect(() => {
     if (tableroId) {
-      actualizarTareas();
+      actualizarTareas();  // Esta llamada es suficiente, ya que solo se llama al cambiar tableroId
     }
-  }, [tableroId, actualizarTareas]); // Escuchar cambios en tableroId
+  }, [tableroId]); // Dependencia solo en tableroId
 
   if (!tareas) {
     return <div>Cargando tareas...</div>;

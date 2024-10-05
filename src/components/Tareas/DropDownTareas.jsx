@@ -88,8 +88,7 @@ export function DropdownTareas() {
   const handleClickTablero = (tablero) => {
     setTableroSeleccionado(tablero);
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
-    actualizarTableroId(tablero.TT_ID);  // Actualizar tableroId en el contexto
-    actualizarTareas(tablero.TT_ID);     // Actualizar las tareas para el nuevo tablero
+    actualizarTableroId(tablero.TT_ID);  // Solo actualizamos el tableroId
     setTableroABorrar(null);
   };
 
