@@ -58,10 +58,10 @@ export function DropdownTareas() {
   };
 
   useEffect(() => {
-    if (tableros.length === 0) {
-      fetchTableros();
+    if (tableroSeleccionado) {
+      actualizarTareas(tableroSeleccionado.TT_ID);  // Solo actualizar tareas si cambia el tablero seleccionado
     }
-  }, [tableros.length]);
+  }, [tableroSeleccionado]); // Quitar dependencia de "tableros" y solo escuchar cambios en "tableroSeleccionado"
 
   const handleCrearTablero = () => {
     const nombreTablero = window.prompt('Ingrese el nombre del tablero:');
@@ -86,9 +86,12 @@ export function DropdownTareas() {
   };
 
   const handleClickTablero = (tablero) => {
+    if (!tablero || tablero.TT_ID === tableroSeleccionado?.TT_ID) return; // Evitar seleccionar el mismo tablero de nuevo
+  
     setTableroSeleccionado(tablero);
     localStorage.setItem('tableroSeleccionado', tablero.TT_ID.toString());
-    actualizarTableroId(tablero.TT_ID);  // Solo actualizamos el tableroId
+    actualizarTableroId(tablero.TT_ID); 
+    actualizarTareas(tablero.TT_ID);
     setTableroABorrar(null);
   };
 

@@ -14,25 +14,35 @@ export const TareasProvider = ({ children }) => {
       setTableroId(storedTableroId);
     }
   }, []);
-
+  
   const actualizarTareas = async (nuevoTableroId) => {
-    const id = nuevoTableroId || tableroId; 
-    if (id && !isFetching) {  // Si ya estamos fetchando, no volvemos a hacerlo
-      setIsFetching(true); // Marcar que estamos haciendo la solicitud
-      try {
-        console.log(`Fetching tareas for tableroId: ${id}`);
-        const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${id}`);
-        if (response.ok) {
-          const data = await response.json();
-          setTareas(data);
-          localStorage.setItem('tareasTableroSeleccionado', JSON.stringify(data));
-        }
-      } catch (error) {
-        console.error('Error al actualizar las tareas:', error);
-      } finally {
-        setIsFetching(false); // Marcar que la solicitud ha finalizado
+    const id = nuevoTableroId || tableroId;
+    
+    if (!id || isFetching) return;
+  
+    setIsFetching(true);
+    const controller = new AbortController(); // Controlador para cancelar peticiones previas
+  
+    try {
+      const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${id}`, { signal: controller.signal });
+      if (response.ok) {
+        const data = await response.json();
+        setTareas(data);
+        localStorage.setItem('tareasTableroSeleccionado', JSON.stringify(data));
+      } else {
+        console.error('Error al actualizar las tareas:', response.statusText);
       }
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.log('Petición cancelada debido a cambio de tablero');
+      } else {
+        console.error('Error al actualizar las tareas:', error);
+      }
+    } finally {
+      setIsFetching(false);
     }
+  
+    return () => controller.abort(); // Cancelar la petición anterior si se cambia el tablero
   };
 
   const actualizarTableroId = (nuevoId) => {
