@@ -83,10 +83,6 @@ export function Tarea(props) {
     const fechaFinalizacionFormatted = moment(fechaFinalizacion, 'DD-MM-YYYY');
     const differenceInDays = fechaFinalizacionFormatted.diff(today, 'days');
   
-    console.log(today);
-    console.log(fechaFinalizacionFormatted);
-    console.log(differenceInDays);
-  
     if (differenceInDays < diasRestantes && prioridad.toLowerCase() !== 'urgente') {
       fetch('https://back-tareas.vercel.app/api/tareas/', {
         method: 'PATCH',

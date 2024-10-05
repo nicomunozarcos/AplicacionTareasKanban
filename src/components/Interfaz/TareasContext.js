@@ -6,6 +6,7 @@ export const TareasProvider = ({ children }) => {
   const [tareas, setTareas] = useState([]);
   const [tableroId, setTableroId] = useState('');
   const [diasRestantes, setDiasRestantes] = useState(2);
+  const [isFetching, setIsFetching] = useState(false); // Estado para evitar llamadas múltiples
 
   useEffect(() => {
     const storedTableroId = localStorage.getItem('tableroSeleccionado');
@@ -16,7 +17,8 @@ export const TareasProvider = ({ children }) => {
 
   const actualizarTareas = async (nuevoTableroId) => {
     const id = nuevoTableroId || tableroId;  // Usar el nuevo tableroId o el existente
-    if (id) {
+    if (id && !isFetching) {  // Evitar múltiples llamadas
+      setIsFetching(true); // Marcar que estamos haciendo la solicitud
       try {
         console.log(`Fetching tareas for tableroId: ${id}`);
         const response = await fetch(`https://back-tareas.vercel.app/api/tareas/${id}`);
@@ -31,9 +33,11 @@ export const TareasProvider = ({ children }) => {
         }
       } catch (error) {
         console.error('Error al actualizar las tareas:', error);
+      } finally {
+        setIsFetching(false); // Marcar que la solicitud ha finalizado
       }
     } else {
-      console.log('No tableroId available');
+      console.log('No tableroId available or already fetching');
     }
   };
 
