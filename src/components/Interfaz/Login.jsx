@@ -4,8 +4,8 @@ import '../../styles/login.css';
 import {Footer} from '../Interfaz/Footer';
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('demo@demo.com');
+  const [password, setPassword] = useState('contraseña_demo');
   const [fullName, setFullName] = useState('');
   const [activeSlide, setActiveSlide] = useState(0);
 

@@ -78,7 +78,7 @@ export function Tarea(props) {
     actualizarTareas();
   }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const today = moment();
     const fechaFinalizacionFormatted = moment(fechaFinalizacion, 'DD-MM-YYYY');
     const differenceInDays = fechaFinalizacionFormatted.diff(today, 'days');
@@ -103,7 +103,7 @@ export function Tarea(props) {
           console.error(error);
         });
     }
-  }, []);
+  }, []); */
   
   
 
